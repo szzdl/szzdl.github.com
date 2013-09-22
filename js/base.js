@@ -1,21 +1,7 @@
-var ZDL = function(){
-	this.base_path = "http://szzdl.github.com";
-	this.resources = ['/jquery/css/jquery.mobile-1.3.2.min.css',
-					 '/jquery/js/jquery-1.10.1.min.js',
-					 '/jquery/js/jquery.mobile-1.3.2.min.js'
-					];
-};
-
+var ZDL = function(){};
 
 ZDL.prototype.init = function(){
 	var head = document.getElementsByTagName('head')[0];
-	var ele = document.createElement('meta');
-	ele.setAttribute('charset', 'UTF-8');
-	head.appendChild(ele);
-	ele = document.createElement('meta');
-	ele.setAttribute('name', 'viewport');
-	ele.setAttribute('content', 'width=device-width, initial-scale=1');
-	head.appendChild(ele);
 	for(var key in this.resources){
 		var path = this.base_path + this.resources[key];
 		var end = path.substr(path.length - 3, 3);
@@ -34,5 +20,28 @@ ZDL.prototype.init = function(){
 	}
 }
 
+ZDL.prototype.scrole_img = function(ele){
+	var curr = ele.find('.item:eq(0)').show();
+	var next;
+	var scroll = function(){
+		curr = ele.find('.item:visible');
+		next = curr.next();
+		if(!next.attr('src')){
+			next = ele.find('.item:eq(0)');
+		}
+		var width = parseInt(curr.width()) + "px";
+		next.css({position:"absolute", left:width, top:"0px"})
+			.show()
+			.animate({left:"0px"}, 1000, function(){
+				next.css({position:"relative", left:"0px"});
+			});
+		curr.animate({left:"-" + width}, 1000, function(){
+			curr.hide().css('left', '0px');
+		});
+	}
+
+	setInterval(scroll, 4000);
+}
+
 var zdl = new ZDL();
-zdl.init();
+//zdl.init();
