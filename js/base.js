@@ -21,38 +21,50 @@ ZDL.prototype.init = function(){
 }
 
 ZDL.prototype.scrole_img = function (ele) {
-    var curr = ele.find('.item:eq(0)').show();
+    ele.find('.item:eq(0)').show();
     ele.find('.icon span:eq(0)').addClass('curr');
-    
+    var speed = 6000;
+    var timer;
+
     var scroll = function (next) {
-        ele.find('.item').stop();
-        curr = ele.find('.item:visible');
-        if(!next){
+        var curr = ele.find('.item:visible');
+        if (curr.is(":animated")) {
+            return;
+        }
+        var width = parseInt(curr.width()) + "px";
+        var _width = "-=" + width;
+        if (next === undefined) {
             next = curr.next();
-            if(next.attr('src') === undefined){
+            if (next.attr('src') === undefined) {
                 next = ele.find('.item:eq(0)');
             }
         }
+        else if (next.index() < curr.index()) {
+            _width = "+=" + width;
+            width = "-" + width;
+        }
+        else if (next.index() == curr.index()) {
+            return;
+        }
+        clearTimeout(timer);
         ele.find('.icon span').removeClass('curr');
         ele.find('.icon span:eq(' + next.index() + ')').addClass('curr');
-
-        var width = parseInt(curr.width()) + "px";
-        next.css({position:"absolute", left:width, top:"0px"})
-        	.show()
-        	.animate({left:"0px"}, 9000, function(){
-        	    next.css({ position: "relative", left: "0px" });
-        	});
-        curr.animate({left:"-" + width}, 9000, function(){
-        	curr.hide().css('left', '0px');
+        next.css({ position: "absolute", left: width, display: "block" })
+        	.animate({ left: "-=" + width}, 300);
+        curr.animate({ left: "-=" + width }, 300, function () {
+            next.css({ position: "relative" });
+            curr.css({ left: "0px", display: "none", position: "relative" });
+            timer = setTimeout(scroll, speed);
         });
     }
 
-	setInterval(scroll, 10000);
+    timer = setTimeout(scroll, speed);
 
-	ele.delegate('.icon span', 'mouseover', function () {
-	    scroll($(this));
+    ele.delegate('.icon span', 'mouseenter', function () {
+	    var index = $(this).index();
+	    var item = ele.find('.item:eq(' + index + ')');
+	    scroll(item);
 	});
 }
 
 var zdl = new ZDL();
-//zdl.init();
