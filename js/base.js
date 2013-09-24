@@ -20,27 +20,38 @@ ZDL.prototype.init = function(){
 	}
 }
 
-ZDL.prototype.scrole_img = function(ele){
-	var curr = ele.find('.item:eq(0)').show();
-	var next;
-	var scroll = function(){
-		curr = ele.find('.item:visible');
-		next = curr.next();
-		if(!next.attr('src')){
-			next = ele.find('.item:eq(0)');
-		}
-		var width = parseInt(curr.width()) + "px";
-		next.css({position:"absolute", left:width, top:"0px"})
-			.show()
-			.animate({left:"0px"}, 1000, function(){
-				next.css({position:"relative", left:"0px"});
-			});
-		curr.animate({left:"-" + width}, 1000, function(){
-			curr.hide().css('left', '0px');
-		});
-	}
+ZDL.prototype.scrole_img = function (ele) {
+    var curr = ele.find('.item:eq(0)').show();
+    ele.find('.icon span:eq(0)').addClass('curr');
+    
+    var scroll = function (next) {
+        ele.find('.item').stop();
+        curr = ele.find('.item:visible');
+        if(!next){
+            next = curr.next();
+            if(next.attr('src') === undefined){
+                next = ele.find('.item:eq(0)');
+            }
+        }
+        ele.find('.icon span').removeClass('curr');
+        ele.find('.icon span:eq(' + next.index() + ')').addClass('curr');
 
-	setInterval(scroll, 4000);
+        var width = parseInt(curr.width()) + "px";
+        next.css({position:"absolute", left:width, top:"0px"})
+        	.show()
+        	.animate({left:"0px"}, 9000, function(){
+        	    next.css({ position: "relative", left: "0px" });
+        	});
+        curr.animate({left:"-" + width}, 9000, function(){
+        	curr.hide().css('left', '0px');
+        });
+    }
+
+	setInterval(scroll, 10000);
+
+	ele.delegate('.icon span', 'mouseover', function () {
+	    scroll($(this));
+	});
 }
 
 var zdl = new ZDL();
