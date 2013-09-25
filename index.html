@@ -17,8 +17,28 @@
             clear: both;
         }
 
+        a {
+            text-decoration:none;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .center {
+            text-align:center;
+        }
+
         .op3 {
             opacity: 0.3;
+        }
+
+        ul {
+            list-style-type: none;
+            border: 0;
+            padding: 0;
+            margin: 0;
         }
 
         .zdl-scroll {
@@ -56,58 +76,143 @@
                 .zdl-scroll .icon .curr {
                     background-color: #1391D2;
                 }
+
+        .zdl-news {
+            height: 30px;
+            line-height: 30px;
+            background-color: #EBEBEB;
+            overflow: hidden;
+            position: relative;
+        }
+            .zdl-news .title {
+                position: absolute;
+                top: 4px;
+                left: 15px;
+                background: url('image/bg_news_title.jpg');
+                display:block;
+                width:57px;
+                height:21px;
+                line-height:21px;
+                color:white;
+                text-align:center;
+            }
+            .zdl-news ul {
+                position:relative;
+                margin-left:90px;
+            }
+                .zdl-news ul li{
+                    display: none;
+                }
+                    .zdl-news ul li a {
+                        font-size: 14px;
+                        font-weight:200;
+                    }
+        .entrance-photo li {
+            width: 33%;
+            float: left;
+            min-width: 300px;
+            _width:300px;
+            text-align:center;
+            margin-bottom:20px;
+        }
+            .entrance-photo li div {
+                width: 280px;
+                display: inline-block;
+                border: 1px solid gray;
+                -moz-box-shadow: 0px 5px 8px rgba(33,33,33,1); /* Safari+Chrome */
+                -webkit-box-shadow: 0px 5px 8px rgba(33,33,33,.7); /* Opera */
+                box-shadow: 0px 5px 8px rgba(33,33,33,.7);
+            }
+            .entrance-photo li p {
+                font-size: 12px;
+                line-height: 20px;
+                color: gray;
+                padding: 0 10px;
+                text-align:left;
+            }
     </style>
 </head>
 <body>
-    <div data-role="page">
+    <div data-role="page" data-theme="a">
         <div data-role="header">
             <h1>Better Life</h1>
         </div>
-        <div class="zdl-scroll">
+        <!--<div class="zdl-scroll">
             <img class="item" src="image/bg1.jpg">
             <img class="item" src="image/bg2.jpg">
             <img class="item" src="image/bg3.jpg">
             <div class="icon">
                 <span></span><span></span><span></span>
             </div>
+        </div>-->
+        <div class="zdl-news">
+            <label class="title">News</label>
+            <ul>
+                <li><a href="">Testtestsetsetsetsetsetsettsetet 1 ——2013年09月25日</a></li>
+                <li><a href="">Test 2 ——2013年09月25日</a></li>
+                <li><a href="">Test 3 ——2013年09月25日</a></li>
+                <li><a href="">Test 4 ——2013年09月25日</a></li>
+                <li><a href="">Test 5 ——2013年09月25日</a></li>
+                <li><a href="">Test 6 ——2013年09月25日</a></li>
+            </ul>
         </div>
         <div data-role="content">
-            <section class="above-list">
-                <h1>Special Events</h1>
-                <a href="http://m.disneyworld.disney.go.com/events/special/mickey-halloween/" data-ajax="false" class="ui-link" name="&amp;lid=mickeys notsoscary halloween party">Mickey's Not–So–Scary Halloween Party</a>
-                <p class="special-event">Select Nights September 10 – November 1, 2013</p>
-            </section>
-            <ul data-role="listview">
+            <ul class="entrance-photo">
+                <li>
+                    <div>
+                        <img src="image/grid1.jpg">
+                        <h3 class="center">官方微信“疯狂猜歌”活动</h3>
+                        <p>vivo官方微信“疯狂猜歌”活动开始啦！每天送好礼，移动电源、高品质耳机随你选。</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <img src="image/grid1.jpg">
+                        <h3 class="center">官方微信“疯狂猜歌”活动</h3>
+                        <p>vivo官方微信“疯狂猜歌”活动开始啦！每天送好礼，移动电源、高品质耳机随你选。</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <img src="image/grid1.jpg">
+                        <h3 class="center">官方微信“疯狂猜歌”活动</h3>
+                        <p>vivo官方微信“疯狂猜歌”活动开始啦！每天送好礼，移动电源、高品质耳机随你选。</p>
+                    </div>
+                </li>
+            </ul>
+            <!--<ul data-role="listview">
                 <li data-role="list-divider">ABORT ME</li>
                 <li data-iconshadow="true">
-                    <a href="" class="ui-link-inherit">
+                    <a href="">
                         <img src="image/1.jpg" class="ul-li-thumb">
                         <h3 class="ui-li-heading">Broken Bells</h3>
                         <p class="ui-li-desc">Broken Bells</p>
                     </a>
                 </li>
                 <li data-iconshadow="true">
-                    <a href="" class="ui-link-inherit">
+                    <a href="">
                         <img src="image/1.jpg" class="ul-li-thumb">
                         <h3 class="ui-li-heading">Broken Bells</h3>
                         <p class="ui-li-desc">Broken Bells</p>
                     </a>
                 </li>
                 <li>
-                    <a href="" class="ui-link-inherit">
+                    <a href="">
                         <img src="image/1.jpg" class="ul-li-thumb">
                         <h3 class="ui-li-heading">Broken Bells</h3>
                         <p class="ui-li-desc">Broken Bells</p>
                     </a>
                 </li>
-            </ul>
-            <div class="clear"></div>
+            </ul>-->
+            <br />
+            <div style="clear:both"></div>
             <input type="button" data-role="button" value="Skip" id="btn_skip" />
         </div>
     </div>
 
     <script type="text/javascript">
         zdl.scrole_img($(".zdl-scroll"));
+        zdl.scrole_new($(".zdl-news"));
     </script>
 
 </body>

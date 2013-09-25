@@ -23,7 +23,7 @@ ZDL.prototype.init = function(){
 ZDL.prototype.scrole_img = function (ele) {
     ele.find('.item:eq(0)').show();
     ele.find('.icon span:eq(0)').addClass('curr');
-    var speed = 6000;
+    var speed = 3000;
     var timer;
 
     var scroll = function (next) {
@@ -50,8 +50,8 @@ ZDL.prototype.scrole_img = function (ele) {
         ele.find('.icon span').removeClass('curr');
         ele.find('.icon span:eq(' + next.index() + ')').addClass('curr');
         next.css({ position: "absolute", left: width, display: "block" })
-        	.animate({ left: "-=" + width}, 300);
-        curr.animate({ left: "-=" + width }, 300, function () {
+        	.animate({ left: "-=" + width}, 200);
+        curr.animate({ left: "-=" + width }, 200, function () {
             next.css({ position: "relative" });
             curr.css({ left: "0px", display: "none", position: "relative" });
             timer = setTimeout(scroll, speed);
@@ -65,6 +65,28 @@ ZDL.prototype.scrole_img = function (ele) {
 	    var item = ele.find('.item:eq(' + index + ')');
 	    scroll(item);
 	});
+}
+
+ZDL.prototype.scrole_new = function (ele) {
+    var timer;
+    ele.find("li:lt(2)").show();
+
+    var scroll = function () {
+        ele.find("li:lt(2)").show();
+        ele.find("ul").animate({ top: "-30px" }, 100, function () {
+            ele.find("li:eq(0)").hide().appendTo($(this));
+            $(this).css('top', '0px');
+            timer = setTimeout(scroll, 4000);
+        });
+    }
+
+    ele.delegate('li', 'mouseover', function () {
+        clearTimeout(timer);
+    }).delegate('li', 'mouseout', function () {
+        timer = setTimeout(scroll, 4000);
+    });
+    
+    var timer = setTimeout(scroll, 4000);
 }
 
 var zdl = new ZDL();
