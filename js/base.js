@@ -21,7 +21,7 @@ ZDL.prototype.init = function(){
 }
 
 ZDL.prototype.scrole_img = function (ele) {
-    ele.find('.item:eq(0)').show();
+    //ele.find('.item:eq(0)').show();
     ele.find('.icon span:eq(0)').addClass('curr');
     var speed = 3000;
     var timer;
