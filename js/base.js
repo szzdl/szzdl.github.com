@@ -73,7 +73,7 @@ ZDL.prototype.scrole_new = function (ele) {
 
     var scroll = function () {
         ele.find("li:lt(2)").show();
-        ele.find("ul").animate({ top: "-30px" }, 100, function () {
+        ele.find("ul").animate({ top: "-30px" }, 200, function () {
             ele.find("li:eq(0)").hide().appendTo($(this));
             $(this).css('top', '0px');
             timer = setTimeout(scroll, 4000);
