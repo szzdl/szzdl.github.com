@@ -87,6 +87,7 @@ ZDL.prototype.scrole_new = function (ele) {
     });
     
     var timer = setTimeout(scroll, 4000);
+
 }
 
 var zdl = new ZDL();

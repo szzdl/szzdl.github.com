@@ -9,8 +9,11 @@
     <script type="text/javascript" src="js/base.js"></script>
     <title>Better Life</title>
     <style type="text/css">
-        div {
-            position:relative;
+        div, section, ul {
+            position: relative;
+            border: 0;
+            padding: 0;
+            margin: 0;
         }
         .header {
             height: 30px;
@@ -39,9 +42,6 @@
 
         ul {
             list-style-type: none;
-            border: 0;
-            padding: 0;
-            margin: 0;
         }
 
         .zdl-scroll {
@@ -108,31 +108,57 @@
                         font-size: 14px;
                         font-weight:200;
                     }
-        .entrance-photo li {
-            width: 33%;
+        .entrance li {
+            width: 33.3%;
             float: left;
-            min-width: 150px;
-            min-height:150px;
-            _height:150px;
-            _width:150px;
+            min-width: 250px;
+            min-height:250px;
+            _height:250px;
+            _width:250px;
             text-align:center;
             margin-bottom:50px;
         }
-            .entrance-photo li div {
+            .entrance li a {
+            	cursor: pointer;
                 width: 90%;
+                max-width: 300px;
                 display: inline-block;
                 border: 1px solid gray;
                 -moz-box-shadow: 0px 5px 8px rgba(33,33,33,1); /* Safari+Chrome */
                 -webkit-box-shadow: 0px 5px 8px rgba(33,33,33,.7); /* Opera */
                 box-shadow: 0px 5px 8px rgba(33,33,33,.7);
             }
-            .entrance-photo li p {
+            .entrance li a:hover{
+            	background-color: #E9E9E9;
+            	border: 1px solid #E9E9E9;
+            }
+            .entrance li p {
                 font-size: 12px;
                 line-height: 20px;
                 color: gray;
                 padding: 0 10px;
                 text-align:left;
             }
+        @media screen and (max-device-width: 750px) { 
+            .entrance{margin:-15px; margin-bottom:20px;}
+        	.entrance li {width: 100%; min-height: 0; min-width: 0; margin:0;}
+                .entrance li a {
+                    width: 100%;
+                    max-width: 100%;
+                    position: relative;
+                    -moz-box-shadow: none; /* Safari+Chrome */
+                    -webkit-box-shadow: none; /* Opera */
+                    box-shadow: none;
+                    border: 1px solid #EBEBEB;
+                }
+        	.entrance img{width: 200px; height: auto; float: left; margin-right: 20px;}
+            .entrance h3, .entrance p {
+                text-align: left;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }  
     </style>
 </head>
 <body>
@@ -162,56 +188,58 @@
         </div>
         <div class="clear"></div>
         <div data-role="content">
-            <div>
-                <ul class="entrance-photo">
+            <section class="entrance">
+                <ul>
                     <li>
-                        <div>
+                        <a>
                             <img src="image/grid1.jpg">
                             <h3 class="center">官方微信“疯狂猜歌”活动</h3>
-                            <p>vivo官方微信“疯狂猜歌”活动开始啦！每天送好礼，移动电源、高品质耳机随你选。</p>
-                        </div>
+                            <p>微信“疯狂猜歌”活动开始啦！每天送好礼，移动电源、耳机随你选。</p>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a>
                             <img src="image/grid1.jpg">
-                            <h3 class="center">官方微信“疯狂猜歌”活动</h3>
-                            <p>vivo官方微信“疯狂猜歌”活动开始啦！每天送好礼，移动电源、高品质耳机随你选。</p>
-                        </div>
+                            <h3 class="center">微信“疯狂猜歌”活动</h3>
+                            <p>微信“疯狂猜歌”活动开始啦！每天送好礼，移动电源、耳机随你选。</p>
+                        </a>
                     </li>
                     <li>
-                        <div>
+                        <a>
                             <img src="image/grid1.jpg">
                             <h3 class="center">官方微信“疯狂猜歌”活动</h3>
-                            <p>vivo官方微信“疯狂猜歌”活动开始啦！每天送好礼，移动电源、高品质耳机随你选。</p>
-                        </div>
+                            <p>官方微信“疯狂猜歌”活动开始啦！每天送好礼，移动电源、耳机随你选。</p>
+                        </a>
                     </li>
                 </ul>
-            </div>
+            </section>
             <div class="clear"></div>
-            <ul data-role="listview">
-                <li data-role="list-divider">ABORT ME</li>
-                <li data-iconshadow="true">
-                    <a href="">
-                        <img src="image/1.jpg" class="ul-li-thumb">
-                        <h3 class="ui-li-heading">Broken Bells</h3>
-                        <p class="ui-li-desc">Broken Bells</p>
-                    </a>
-                </li>
-                <li data-iconshadow="true">
-                    <a href="">
-                        <img src="image/1.jpg" class="ul-li-thumb">
-                        <h3 class="ui-li-heading">Broken Bells</h3>
-                        <p class="ui-li-desc">Broken Bells</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="image/1.jpg" class="ul-li-thumb">
-                        <h3 class="ui-li-heading">Broken Bells</h3>
-                        <p class="ui-li-desc">Broken Bells</p>
-                    </a>
-                </li>
-            </ul>
+            <section>
+	            <ul data-role="listview">
+	                <li data-role="list-divider">ABORT ME</li>
+	                <li data-iconshadow="true">
+	                    <a href="">
+	                        <img src="image/1.jpg">
+	                        <h3>Broken Bells</h3>
+	                        <p>Broken Bells</p>
+	                    </a>
+	                </li>
+	                <li data-iconshadow="true">
+	                    <a href="">
+	                        <img src="image/1.jpg" >
+	                        <h3>Broken Bells</h3>
+	                        <p>Broken Bells</p>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="">
+	                        <img src="image/1.jpg" >
+	                        <h3>Broken Bells</h3>
+	                        <p>Broken Bells</p>
+	                    </a>
+	                </li>
+	            </ul>
+            </section>
             <br />
             <div style="clear:both"></div>
             <input type="button" data-role="button" value="Skip" id="btn_skip" />
