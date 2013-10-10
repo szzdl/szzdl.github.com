@@ -159,7 +159,7 @@ ul {
         padding: 0 10px;
         text-align:left;
     }
-@media screen and (max-device-width: 800px) { 
+.landscape, @media screen and (max-device-width: 800px){ 
     .entrance{margin:-15px; margin-bottom:20px;}
 	.entrance li {width: 100%; min-height: 0; min-width: 0; margin:0;}
         .entrance li a {
