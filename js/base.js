@@ -65,6 +65,16 @@ ZDL.prototype.scrole_img = function (ele) {
 	    var item = ele.find('.item:eq(' + index + ')');
 	    scroll(item);
 	});
+
+    ele.delegate('img', 'swipeleft', function(event) {
+        alert("1");
+        event.preventDefault();
+    });
+
+    ele.delegate('img', 'swiperight', function(event) {
+        alert("2");
+        event.preventDefault();
+    });
 }
 
 ZDL.prototype.scrole_new = function (ele) {
