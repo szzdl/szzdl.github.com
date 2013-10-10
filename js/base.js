@@ -70,8 +70,8 @@ ZDL.prototype.scrole_img = function (ele) {
 
     ele.delegate('img', 'swipeleft', function(event) {
         var index = $(this).index();
-        if(index == 0){
-            index = len - 1;
+        if(index == len - 1){
+            index = 0;
         }
         else{
             index++;
@@ -82,8 +82,8 @@ ZDL.prototype.scrole_img = function (ele) {
 
     ele.delegate('img', 'swiperight', function(event) {
         var index = $(this).index();
-        if(index == len - 1){
-            index = 0;
+        if(index == 0){
+            index = len - 1;
         }
         else{
             index--;
