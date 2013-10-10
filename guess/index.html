@@ -68,11 +68,11 @@
 <div data-role="page" >
 	<div data-role="header" data-theme="b">
 		<h1>Guess movie</h1>
-		<a href="http://szzdl.github.com" data-icon="gear" class="ui-btn-right">首页</a>   
+		<a href="http://szzdl.github.com" data-icon="home" data-rel="back" class="ui-btn-right">首页</a>   
 	</div>
 
 	<div data-role="content" class="middle">
-		<img id="main_img" src="images/1" current="1"/>
+		<img id="main_img" current="1"/>
 		<div class="main-answer"></div>
 		<hr class="hr1" />	
 		<div class="main-words">
@@ -84,11 +84,7 @@
 
 <script type="text/javascript">
 	var image_path = "images/";
-	var data = ["百万亚瑟王","名侦探柯南","海贼王","七龙珠","火影","妖精的尾巴","哆啦a梦","熊出没","海绵宝宝","聪明的一休",
-	            "圣斗士星矢","机器猫","魔神英雄传","魔神坛斗士","忍者乱太郎","我是小甜甜","灌篮高手","名侦探柯南","足球小将",
-	            "宠物小精灵","中华小当家","新世纪天鹰战士","四驱兄弟","棒球英豪","光能使者","铁胆火车侠","变形金刚","六神合体",
-	            "太空堡垒","最后的恐龙丹佛","布雷斯塔警长","忍者神龟","大力水手","地球超人","嘿奔奔","蓝精灵","猫和老鼠",
-	            "阿凡提的故事","天书奇谭","葫芦兄弟","邋遢大王历险记","舒克和贝塔"];
+	var data = ["名侦探柯南","张无忌","海贼王","七龙珠","火影","妖精的尾巴","杨过","哆啦a梦","熊出没","海绵宝宝","诺基亚","聪明的一休","段誉","圣斗士星矢","机器猫","魔神英雄传","摩托罗拉","灌篮高手","足球小将","宠物小精灵","中华小当家","变形金刚","忍者神龟","大力水手","蓝精灵","猫和老鼠","葫芦兄弟","小龙女","微软","苹果"];
 	var data_copy = [];
 	//console.log(words);
 	var true_name;
@@ -173,12 +169,13 @@
 		for(var i = 0; i < bs.length; i++){
 			name += bs[i].innerHTML;
 		}
+		console.log(true_name);
 		return name == true_name;
 	}
 
 	var init = function(index){
-		img.attr('src', image_path + index).attr('current', index);
 		true_name = data[index];
+		img.attr('src', image_path + true_name + '.jpg').attr('current', index);
 		data_copy = data.concat();
 		data_copy.splice(index, 1);
 		ele_answer.html('');
