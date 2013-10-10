@@ -3,190 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="jquery/css/jquery.mobile-1.3.2.min.css">
     <script type="text/javascript" src="jquery/js/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="jquery/js/jquery.mobile-1.3.2.min.js"></script>
     <script type="text/javascript" src="js/base.js"></script>
     <title>Better Life</title>
-    <style type="text/css">
-        div, section, ul {
-            position: relative;
-            border: 0;
-            padding: 0;
-            margin: 0;
-        }
-        .header {
-            height: 30px;
-        }
-        .footer{
-            font-size: 10px;
-            font-weight: normal;
-        }
-        .footer ul{
-            padding-top: 10px;
-            text-align: center;
-        }
-        .footer ul li{
-            display: inline-block;
-            text-align: left;
-            padding-left: 10px;
-        }
-        .footer ul li a{
-            display: inline-block;
-        }
-
-        .footer .line{
-            padding-right: 10px;
-            border-right: 1px solid #7cc4e7;
-        }
-
-        .clear {
-            clear: both;
-        }
-
-        a {
-            text-decoration:none;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-        }
-
-        .center {
-            text-align:center;
-        }
-
-        .op3 {
-            opacity: 0.3;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        .zdl-scroll {
-            position: relative;
-            width:100%;
-            overflow: hidden;
-        }
-
-            .zdl-scroll .item {
-                display: none;
-                position: relative;
-                top: 0px;
-                left: 0px;
-            }
-
-            .zdl-scroll .icon {
-                position:absolute;
-                bottom:3%;
-                right:5%;
-            }
-
-                .zdl-scroll .icon span {
-                    display: inline-block;
-                    width: 10px;
-                    height: 10px;
-                    background-color: gray;
-                    box-shadow: 1px 1px 1px gray;
-                    border-radius: 10px;
-                    cursor: pointer;
-                    margin-left: 15px;
-                }
-
-                .zdl-scroll .icon .curr {
-                    background-color: #1391D2;
-                }
-
-        .zdl-news {
-            height: 30px;
-            line-height: 30px;
-            background-color: #EBEBEB;
-            overflow: hidden;
-            position: relative;
-        }
-            .zdl-news .title {
-                position: absolute;
-                top: 4px;
-                left: 15px;
-                background: url('image/bg_news_title.jpg');
-                display:block;
-                width:57px;
-                height:21px;
-                line-height:21px;
-                color:white;
-                text-align:center;
-            }
-            .zdl-news ul {
-                position:relative;
-                margin-left:90px;
-            }
-                .zdl-news ul li{
-                    display: none;
-                }
-                    .zdl-news ul li a {
-                        font-size: 14px;
-                        font-weight:200;
-                    }
-        .entrance {
-            min-width:800px;
-        }
-        .entrance li {
-            width: 33.3%;
-            float: left;
-            min-width: 250px;
-            min-height:250px;
-            _height:250px;
-            _width:250px;
-            text-align:center;
-            margin-bottom:50px;
-        }
-            .entrance li a {
-            	cursor: pointer;
-                width: 90%;
-                max-width: 240px;
-                display: inline-block;
-                border: 1px solid gray;
-                -moz-box-shadow: 0px 5px 8px rgba(33,33,33,1); /* Safari+Chrome */
-                -webkit-box-shadow: 0px 5px 8px rgba(33,33,33,.7); /* Opera */
-                box-shadow: 0px 5px 8px rgba(33,33,33,.7);
-            }
-            .entrance li a:hover{
-            	background-color: #E9E9E9;
-            	border: 1px solid #E9E9E9;
-            }
-            .entrance li p {
-                font-size: 12px;
-                line-height: 20px;
-                color: gray;
-                padding: 0 10px;
-                text-align:left;
-            }
-        @media screen and (max-device-width: 800px) { 
-            .entrance{margin:-15px; margin-bottom:20px;}
-        	.entrance li {width: 100%; min-height: 0; min-width: 0; margin:0;}
-                .entrance li a {
-                    width: 100%;
-                    max-width: 100%;
-                    position: relative;
-                    -moz-box-shadow: none; /* Safari+Chrome */
-                    -webkit-box-shadow: none; /* Opera */
-                    box-shadow: none;
-                    border: 1px solid #EBEBEB;
-                }
-        	.entrance img{width: 180px; height: auto; float: left; margin-right: 20px;}
-            .entrance h3, .entrance p {
-                text-align: left;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                white-space: nowrap;
-            }
-        }  
-    </style>
 </head>
 <body>
-    <div data-role="page" data-theme="a">
+    <div data-role="page" data-theme="a" data-title="Better Life">
         <div data-role="header">
             <h1>Better Life</h1>
         </div>
@@ -215,21 +40,21 @@
             <section class="entrance">
                 <ul>
                     <li>
-                        <a href="http://szzdl.github.com/guess/index.html">
+                        <a href="guess/index.html">
                             <img src="image/grid1.jpg">
                             <h3 class="center">疯狂猜图</h3>
                             <p>各位伙伴们，多多提供素材，一款属于我们自己的手游即将开启。</p>
                         </a>
                     </li>
                     <li>
-                        <a href="http://szzdl.github.com/guess/index.html">
+                        <a href="guess/index.html">
                             <img src="image/grid1.jpg">
                             <h3 class="center">疯狂猜图</h3>
                             <p>各位伙伴们，多多提供素材，一款属于我们自己的手游即将开启。</p>
                         </a>
                     </li>
                     <li>
-                        <a href="http://szzdl.github.com/guess/index.html">
+                        <a href="guess/index.html">
                             <img src="image/grid1.jpg">
                             <h3 class="center">疯狂猜图</h3>
                             <p>各位伙伴们，多多提供素材，一款属于我们自己的手游即将开启。</p>

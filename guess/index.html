@@ -3,69 +3,14 @@
 	<head> 
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>My Page</title> 
-	
 	<link rel="stylesheet" href="../jquery/css/jquery.mobile-1.3.2.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<script src="../jquery/js/jquery-1.10.1.min.js"></script>
 	<script src="../jquery/js/jquery.mobile-1.3.2.min.js"></script>
-
-	<style type="text/css">
-		body, div, span, hr{
-			border: 0;
-			margin: 0;
-			padding: 0;
-			text-shadow: none;
-		}
-		.middle{
-			background-color: #272727;
-		}
-		.middle{
-			text-align: center;
-		}
-		.main-words{
-			min-width: 300px;
-		}
-		.main-words b, .main-answer b{
-			display: inline-block;
-			width: 30px;
-			cursor: pointer;
-			height: 30px;
-			line-height: 30px;
-			text-align: center;
-			vertical-align:top;
-			border-radius: 3px;
-		}
-		.main-words b{
-			margin: 0px 3px 3px 0px;
-			word-break: break-word;
-			background-color: #F3F3F3;
-		}
-		.main-answer b{
-			margin: 0px 5px 5px 0px;
-			box-shadow: 0px 0px 2px #666666;
-			color: #F3F3F3;
-			background-color: #0F0F0F
-		}
-		.hr1{
-			width: 85%;
-			height: 2px;
-			background-color:#151515; 
-			text-align: center;
-			margin: 10px auto 30px auto;
-			box-shadow: 0px 0px 5px #454545;
-			border-radius: 5px;
-		}
-		#main_img{
-			height: 200px;
-			width: 200px;
-			margin-bottom: 10px;
-			border: 3px solid #F3F3F3;
-		}
-	</style>
 </head> 
 <body> 
 
-<div data-role="page" >
+<div data-role="page" data-title="Guess">
 	<div data-role="header" data-theme="b">
 		<h1>Guess movie</h1>
 		<a href="http://szzdl.github.com" data-icon="home" data-rel="back" class="ui-btn-right">首页</a>   
@@ -75,124 +20,11 @@
 		<img id="main_img" current="1"/>
 		<div class="main-answer"></div>
 		<hr class="hr1" />	
-		<div class="main-words">
-			<!-- <b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b><b>瑟</b> -->
-		</div>
+		<div class="main-words"></div>
 		<input type="button" data-role="button" value="Skip" id="btn_skip" />
 	</div>
+
+	<script src="../js/guess.js"></script>
 </div>
-
-<script type="text/javascript">
-	var image_path = "images/";
-	var data = ["名侦探柯南","张无忌","海贼王","七龙珠","火影","妖精的尾巴","杨过","哆啦a梦","熊出没","海绵宝宝","诺基亚","聪明的一休","段誉","圣斗士星矢","机器猫","魔神英雄传","摩托罗拉","灌篮高手","足球小将","宠物小精灵","中华小当家","变形金刚","忍者神龟","大力水手","蓝精灵","猫和老鼠","葫芦兄弟","小龙女","微软","苹果"];
-	var data_copy = [];
-	//console.log(words);
-	var true_name;
-	var answer = '';
-	var ele_words = $(".main-words");
-	var ele_answer = $(".main-answer");
-	var img = $("#main_img");
-
-	var next = function(){
-		var index = parseInt(img.attr('current'));
-		if(index == data.length - 1){
-			index = -1;
-		}
-		index++;
-		init(index);
-	}
-
-	var rand_words = function(){
-		var words = [];
-		data_copy.sort(function(){return 0.5 - Math.random()});
-		for(var c in true_name){
-			words.push("<b>" + true_name[c] + "</b>");
-		}
-		console.log("正确答案：" + true_name);
-		while(words.length < 30){
-			var one_name = data_copy.pop();
-			for(var c in one_name){
-				words.push("<b>" + one_name[c] + "</b>");
-				if(words.length == 30){
-					break;
-				}
-			}
-		}
-		words.sort(function(){return 0.5 - Math.random()});
-		ele_words.html(words);
-		ele_words.delegate('b', 'click', add_answer);
-	}
-
-	var add_answer = function(){
-		if(!$(this).html()){
-			return;
-		}
-		var target = ele_answer.find('b:empty').get(0);
-		if(!target){
-			return;
-		}
-		ele = $(this);
-		$(target).html(ele.html()).data('target', ele);
-		ele.html('');
-
-		var target = ele_answer.find('b:empty').get(0);
-		if(target){
-			return;
-		}
-		if(check_answer()){
-			next();
-		}
-		else{
-			ele_answer.find('b').css('color', 'red');
-		}
-	}
-
-
-	var remove_answer = function(){
-		var ele = $(this);
-		var c = ele.html();
-		if(!c){
-			return;
-		}
-		ele.data('target').html(c);
-		ele.data('target','').html('');
-		ele_answer.find('b').css('color', '#F3F3F3');
-	}
-
-	var random_num = function(){
-		return Math.floor(Math.random() * data.length);
-	}
-
-	var check_answer = function(){
-		var bs = ele_answer.find('b');
-		var name = '';
-		for(var i = 0; i < bs.length; i++){
-			name += bs[i].innerHTML;
-		}
-		console.log(true_name);
-		return name == true_name;
-	}
-
-	var init = function(index){
-		true_name = data[index];
-		img.attr('src', image_path + true_name + '.jpg').attr('current', index);
-		data_copy = data.concat();
-		data_copy.splice(index, 1);
-		ele_answer.html('');
-		answer.data = [];
-		answer.ele = [];
-		for(var i = 0; i<true_name.length; i++){
-			ele_answer.append('<b></b>');
-		}
-		rand_words();
-		ele_answer.delegate('b', 'click', remove_answer);
-	}
-
-	$("#btn_skip").click(next);
-
-	//init
-	init(random_num());
-	
-</script>
 </body>
 </html>

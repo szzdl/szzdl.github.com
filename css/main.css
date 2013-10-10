@@ -1,0 +1,222 @@
+div, section, ul, body, span, hr{
+    position: relative;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    text-shadow: none;
+}
+.header {
+    height: 30px;
+}
+.footer{
+    font-size: 10px;
+    font-weight: normal;
+}
+.footer ul{
+    padding-top: 10px;
+    text-align: center;
+}
+.footer ul li{
+    display: inline-block;
+    text-align: left;
+    padding-left: 10px;
+}
+.footer ul li a{
+    display: inline-block;
+}
+
+.footer .line{
+    padding-right: 10px;
+    border-right: 1px solid #7cc4e7;
+}
+
+.middle{
+            background-color: #272727;
+        }
+        .middle{
+            text-align: center;
+        }
+.clear {
+    clear: both;
+}
+
+a {
+    text-decoration:none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.center {
+    text-align:center;
+}
+
+.op3 {
+    opacity: 0.3;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.zdl-scroll {
+    position: relative;
+    width:100%;
+    overflow: hidden;
+}
+
+    .zdl-scroll .item {
+        display: none;
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
+
+    .zdl-scroll .icon {
+        position:absolute;
+        bottom:3%;
+        right:5%;
+    }
+
+        .zdl-scroll .icon span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: gray;
+            box-shadow: 1px 1px 1px gray;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .zdl-scroll .icon .curr {
+            background-color: #1391D2;
+        }
+
+.zdl-news {
+    height: 30px;
+    line-height: 30px;
+    background-color: #EBEBEB;
+    overflow: hidden;
+    position: relative;
+}
+    .zdl-news .title {
+        position: absolute;
+        top: 4px;
+        left: 15px;
+        background: url('../image/bg_news_title.jpg');
+        display:block;
+        width:57px;
+        height:21px;
+        line-height:21px;
+        color:white;
+        text-align:center;
+    }
+    .zdl-news ul {
+        position:relative;
+        margin-left:90px;
+    }
+        .zdl-news ul li{
+            display: none;
+        }
+            .zdl-news ul li a {
+                font-size: 14px;
+                font-weight:200;
+            }
+.entrance {
+    min-width:800px;
+}
+.entrance li {
+    width: 33.3%;
+    float: left;
+    min-width: 250px;
+    min-height:250px;
+    _height:250px;
+    _width:250px;
+    text-align:center;
+    margin-bottom:50px;
+}
+    .entrance li a {
+    	cursor: pointer;
+        width: 90%;
+        max-width: 240px;
+        display: inline-block;
+        border: 1px solid gray;
+        -moz-box-shadow: 0px 5px 8px rgba(33,33,33,1); /* Safari+Chrome */
+        -webkit-box-shadow: 0px 5px 8px rgba(33,33,33,.7); /* Opera */
+        box-shadow: 0px 5px 8px rgba(33,33,33,.7);
+    }
+    .entrance li a:hover{
+    	background-color: #E9E9E9;
+    	border: 1px solid #E9E9E9;
+    }
+    .entrance li p {
+        font-size: 12px;
+        line-height: 20px;
+        color: gray;
+        padding: 0 10px;
+        text-align:left;
+    }
+@media screen and (max-device-width: 800px) { 
+    .entrance{margin:-15px; margin-bottom:20px;}
+	.entrance li {width: 100%; min-height: 0; min-width: 0; margin:0;}
+        .entrance li a {
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            -moz-box-shadow: none; /* Safari+Chrome */
+            -webkit-box-shadow: none; /* Opera */
+            box-shadow: none;
+            border: 1px solid #EBEBEB;
+        }
+	.entrance img{width: 180px; height: auto; float: left; margin-right: 20px;}
+    .entrance h3, .entrance p {
+        text-align: left;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}  
+
+/*----------Guess页面使用----------------------------------------------------------------*/
+.main-words{
+    min-width: 300px;
+}
+.main-words b, .main-answer b{
+    display: inline-block;
+    width: 30px;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align:top;
+    border-radius: 3px;
+}
+.main-words b{
+    margin: 0px 3px 3px 0px;
+    word-break: break-word;
+    background-color: #F3F3F3;
+}
+.main-answer b{
+    margin: 0px 5px 5px 0px;
+    box-shadow: 0px 0px 2px #666666;
+    color: #F3F3F3;
+    background-color: #0F0F0F
+}
+.hr1{
+    width: 85%;
+    height: 2px;
+    background-color:#151515; 
+    text-align: center;
+    margin: 10px auto 30px auto;
+    box-shadow: 0px 0px 5px #454545;
+    border-radius: 5px;
+}
+#main_img{
+    height: 200px;
+    width: 200px;
+    margin-bottom: 10px;
+    border: 3px solid #F3F3F3;
+}
