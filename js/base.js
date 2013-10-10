@@ -73,15 +73,20 @@ ZDL.prototype.scrole_img = function (ele) {
         if(index == 0){
             index = len - 1;
         }
+        else{
+            index++;
+        }
         var item = ele.find('.item:eq(' + index + ')');
         scroll(item);
-        event.preventDefault();
     });
 
     ele.delegate('img', 'swiperight', function(event) {
         var index = $(this).index();
         if(index == len - 1){
             index = 0;
+        }
+        else{
+            index--;
         }
         var item = ele.find('.item:eq(' + index + ')');
         scroll(item);
