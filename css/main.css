@@ -180,26 +180,7 @@ ul {
         white-space: nowrap;
     }
 
-@media screen and (max-device-width: 800px){ 
-    .entrance{margin:-15px; margin-bottom:20px;}
-	.entrance li {width: 100%; min-height: 0; min-width: 0; margin:0;}
-        .entrance li a {
-            width: 100%;
-            max-width: 100%;
-            position: relative;
-            -moz-box-shadow: none; /* Safari+Chrome */
-            -webkit-box-shadow: none; /* Opera */
-            box-shadow: none;
-            border: 1px solid #EBEBEB;
-        }
-	.entrance img{width: 180px; height: auto; float: left; margin-right: 20px;}
-    .entrance h3, .entrance p {
-        text-align: left;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-}  
+ 
 
 /*----------Guess页面使用----------------------------------------------------------------*/
 .main-words{
