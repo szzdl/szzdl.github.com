@@ -66,13 +66,25 @@ ZDL.prototype.scrole_img = function (ele) {
 	    scroll(item);
 	});
 
+    var len = ele.find('img').length;
+
     ele.delegate('img', 'swipeleft', function(event) {
-        alert("1");
+        var index = $(this).index();
+        if(index == 0){
+            index = len - 1;
+        }
+        var item = ele.find('.item:eq(' + index + ')');
+        scroll(item);
         event.preventDefault();
     });
 
     ele.delegate('img', 'swiperight', function(event) {
-        alert("2");
+        var index = $(this).index();
+        if(index == len - 1){
+            index = 0;
+        }
+        var item = ele.find('.item:eq(' + index + ')');
+        scroll(item);
         event.preventDefault();
     });
 }
